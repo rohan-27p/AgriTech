@@ -66,12 +66,12 @@ export default function HomeScreen() {
         <View style={styles.productList}>
           {[
             {
-              name: "Air Jordan XI Retro",
+              name: "VX3 geoforce",
               price: "₹16995",
               image: "https://via.placeholder.com/150",
             },
             {
-              name: "Air Jordan IV",
+              name: "VX1 ultra fast ",
               price: "₹18995",
               image: "https://via.placeholder.com/150",
             },
