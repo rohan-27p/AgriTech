@@ -7,14 +7,21 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ChatWithSeller() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity>
-          <Ionicons name="arrow-back" size={24} color="black" />
+          <Ionicons
+            name="arrow-back"
+            size={24}
+            color="black"
+            onPress={() => navigation.navigate("Welcome")}
+          />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Chat with seller</Text>
         <View style={styles.headerOptions}>

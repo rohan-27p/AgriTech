@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { supabase } from "./lib/supabase"; // Adjust the import path to your `supabase.js` file
+//import { supabase } from "./lib/supabase"; // Adjust the import path to your `supabase.js` file
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -16,19 +16,18 @@ const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleGoogleSignIn = async () => {
-    try {
-      const { error, data } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-      });
-
-      if (error) {
-        console.error("Google Sign-In Error:", error.message);
-      } else {
-        console.log("Sign-In Data:", data);
-      }
-    } catch (error) {
-      console.error("Unexpected Error:", error);
-    }
+    // try {
+    //   const { error, data } = await supabase.auth.signInWithOAuth({
+    //     provider: "google",
+    //   });
+    //   if (error) {
+    //     console.error("Google Sign-In Error:", error.message);
+    //   } else {
+    //     console.log("Sign-In Data:", data);
+    //   }
+    // } catch (error) {
+    //   console.error("Unexpected Error:", error);
+    // }
   };
 
   return (
@@ -71,7 +70,12 @@ const LoginScreen = () => {
       </TouchableOpacity>
 
       {/* Sign In Button */}
-      <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
+      <TouchableOpacity
+        style={styles.signInButton}
+        onPress={() => {
+          navigation.navigate("Welcome");
+        }}
+      >
         <Text style={styles.signInText}>Sign in</Text>
       </TouchableOpacity>
 
