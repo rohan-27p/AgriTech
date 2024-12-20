@@ -15,7 +15,7 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign in</Text>
+      <Text style={styles.title}>Login</Text>
       <Text style={styles.subtitle}>Please log in into your account</Text>
 
       {/* Email Input */}
@@ -57,26 +57,11 @@ const LoginScreen = () => {
         <Text style={styles.signInText}>Sign in</Text>
       </TouchableOpacity>
 
-      {/* Social Login Buttons */}
-      <TouchableOpacity style={styles.googleButton}>
-        <Image
-          source={{
-            uri: "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
-          }}
-          style={styles.socialIcon}
-        />
-        <Text style={styles.socialText}>Sign in with Google</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.facebookButton}>
-        <Image
-          source={{
-            uri: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png",
-          }}
-          style={styles.socialIcon}
-        />
-        <Text style={styles.socialText}>Sign in with Facebook</Text>
-      </TouchableOpacity>
+      <View style={styles.signUpText}>
+        <Text style={styles.signUpContainer}>
+          Don't have an account? <Text style={styles.signUpLink}>Sign Up</Text>
+        </Text>
+      </View>
     </View>
   );
 };
@@ -119,9 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "green",
   },
-  passwordContainer: {
-    borderColor: "#6200ee",
-  },
+
   eyeIcon: {
     marginLeft: 10,
   },
@@ -142,27 +125,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
-  googleButton: {
-    flexDirection: "row",
+
+  signUpText: {
     alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 10,
-    marginBottom: 15,
-    backgroundColor: "#fff",
+    marginTop: 10,
   },
-  facebookButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 10,
-    backgroundColor: "#fff",
+  signUpContainer: {
+    textAlign: "center",
+    fontSize: 16,
+    color: "#333",
   },
+  signUpLink: {
+    color: "#007bff",
+    fontWeight: "bold",
+  },
+
   socialIcon: {
     width: 20,
     height: 20,
