@@ -34,17 +34,7 @@
         }
       ],
       [
-        "expo-build-properties",
-        {
-          "android": {
-            "package": ""
-          },
-          "ios": {
-            "bundleIdentifier": "com.example.firebaseApp"
-          }
-        }
-    
-    
+        "expo-build-properties"
       ]
     ],
     "experiments": {
