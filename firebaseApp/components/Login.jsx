@@ -7,7 +7,6 @@ import {
   StyleSheet,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-//import { supabase } from "./lib/supabase"; // Adjust the import path to your `supabase.js` file
 
 const LoginScreen = () => {
   const navigation = useNavigation();

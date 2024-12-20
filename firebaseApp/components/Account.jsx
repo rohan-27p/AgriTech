@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/Ionicons"; // Import Ionicons or any icon library
 
 const EditProfileScreen = () => {
   const navigation = useNavigation();
@@ -25,7 +26,19 @@ const EditProfileScreen = () => {
 
   return (
     <View style={styles.container}>
+      {/* Back Button */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}
+      >
+        <Text>
+          <Icon name="arrow-back" size={24} color="#343a40" />{" "}
+          {/* Back arrow */}
+        </Text>
+      </TouchableOpacity>
+
       <Text style={styles.title}>Edit Profile</Text>
+
       <View style={styles.profilePictureContainer}>
         <Image
           source={{ uri: "https://via.placeholder.com/100" }} // Replace with actual image URL
@@ -78,6 +91,13 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: "#f8f9fa", // Light gray background for modern look
+  },
+  backButton: {
+    position: "absolute",
+    top: 10,
+    left: 10,
+    zIndex: 1,
+    padding: 10,
   },
   title: {
     fontSize: 28,

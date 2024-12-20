@@ -20,7 +20,7 @@ export default function ChatWithSeller() {
             name="arrow-back"
             size={24}
             color="black"
-            onPress={() => navigation.navigate("Welcome")}
+            onPress={() => navigation.goBack()}
           />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Chat with seller</Text>

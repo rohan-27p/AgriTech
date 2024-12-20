@@ -42,14 +42,18 @@ export default function HomeScreen() {
           showsHorizontalScrollIndicator={false}
           style={styles.categories}
         >
-          {["Drones", "Vertical Farming", "sensors", "Precision farming", "Spare parts"].map(
-            (category, index) => (
-              <View key={index} style={styles.category}>
-                <Icon name="shoe-sneaker" size={24} />
-                <Text style={styles.categoryText}>{category}</Text>
-              </View>
-            )
-          )}
+          {[
+            "Drones",
+            "Vertical Farming",
+            "sensors",
+            "Precision farming",
+            "Spare parts",
+          ].map((category, index) => (
+            <View key={index} style={styles.category}>
+              <Icon name="shoe-sneaker" size={24} />
+              <Text style={styles.categoryText}>{category}</Text>
+            </View>
+          ))}
         </ScrollView>
 
         {/* Sort and Filter */}
@@ -93,16 +97,6 @@ export default function HomeScreen() {
 
       {/* Bottom Navigation */}
       <MFooter></MFooter>
-      {/* <View style={styles.bottomNav}>
-        {["Home", "Shopping", "Chat", "Account"].map((icon, index) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => navigation.navigate(`${icon}`)}
-          >
-            <Icon name={icon.toLowerCase()} size={24} style={styles.navIcon} />
-          </TouchableOpacity>
-        ))}
-      </View> */}
     </View>
   );
 }
