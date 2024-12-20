@@ -15,21 +15,6 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleGoogleSignIn = async () => {
-    // try {
-    //   const { error, data } = await supabase.auth.signInWithOAuth({
-    //     provider: "google",
-    //   });
-    //   if (error) {
-    //     console.error("Google Sign-In Error:", error.message);
-    //   } else {
-    //     console.log("Sign-In Data:", data);
-    //   }
-    // } catch (error) {
-    //   console.error("Unexpected Error:", error);
-    // }
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
@@ -84,14 +69,6 @@ const LoginScreen = () => {
           Don't have an account? <Text style={styles.signUpLink}>Sign Up</Text>
         </Text>
       </View>
-
-      {/* Google Sign-In Button */}
-      <TouchableOpacity
-        style={styles.googleButton}
-        onPress={handleGoogleSignIn}
-      >
-        <Text style={styles.googleButtonText}>Sign in with Google</Text>
-      </TouchableOpacity>
     </View>
   );
 };
