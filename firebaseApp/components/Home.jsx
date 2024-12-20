@@ -42,7 +42,7 @@ export default function HomeScreen() {
           showsHorizontalScrollIndicator={false}
           style={styles.categories}
         >
-          {["Casual", "Running", "Basketball", "Kids", "Boot"].map(
+          {["Drones", "Vertical Farming", "sensors", "Precision farming", "Spare parts"].map(
             (category, index) => (
               <View key={index} style={styles.category}>
                 <Icon name="shoe-sneaker" size={24} />
