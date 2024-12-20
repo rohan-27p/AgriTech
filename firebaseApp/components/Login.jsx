@@ -5,13 +5,9 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Image,
 } from "react-native";
-import {
-  createStaticNavigation,
-  useNavigation,
-} from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { supabase } from "./lib/supabase"; // Adjust the import path to your `supabase.js` file
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -19,6 +15,22 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const { error, data } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+      });
+
+      if (error) {
+        console.error("Google Sign-In Error:", error.message);
+      } else {
+        console.log("Sign-In Data:", data);
+      }
+    } catch (error) {
+      console.error("Unexpected Error:", error);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -64,14 +76,16 @@ const LoginScreen = () => {
         <Text style={styles.signInText}>Sign in</Text>
       </TouchableOpacity>
 
-      <View
-        style={styles.signUpText}
-        onPress={() => navigation.navigate("Details")}
-      >
+      <View style={styles.signUpText}>
         <Text style={styles.signUpContainer}>
           Don't have an account? <Text style={styles.signUpLink}>Sign Up</Text>
         </Text>
       </View>
+
+      {/* Google Sign-In Button */}
+      <TouchableOpacity style={styles.googleButton} onPress={handleGoogleSignIn}>
+        <Text style={styles.googleButtonText}>Sign in with Google</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -114,7 +128,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "green",
   },
-
   eyeIcon: {
     marginLeft: 10,
   },
@@ -135,7 +148,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
-
   signUpText: {
     alignItems: "center",
     marginTop: 10,
@@ -149,15 +161,17 @@ const styles = StyleSheet.create({
     color: "#007bff",
     fontWeight: "bold",
   },
-
-  socialIcon: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
+  googleButton: {
+    backgroundColor: "#db4a39",
+    paddingVertical: 15,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 20,
   },
-  socialText: {
+  googleButtonText: {
+    color: "#fff",
     fontSize: 16,
-    color: "#333",
+    fontWeight: "bold",
   },
 });
 
