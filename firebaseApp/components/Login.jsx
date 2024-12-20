@@ -11,7 +11,6 @@ import { supabase } from "./lib/supabase"; // Adjust the import path to your `su
 
 const LoginScreen = () => {
   const navigation = useNavigation();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -72,7 +71,7 @@ const LoginScreen = () => {
       </TouchableOpacity>
 
       {/* Sign In Button */}
-      <TouchableOpacity style={styles.signInButton}>
+      <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
         <Text style={styles.signInText}>Sign in</Text>
       </TouchableOpacity>
 
@@ -83,7 +82,10 @@ const LoginScreen = () => {
       </View>
 
       {/* Google Sign-In Button */}
-      <TouchableOpacity style={styles.googleButton} onPress={handleGoogleSignIn}>
+      <TouchableOpacity
+        style={styles.googleButton}
+        onPress={handleGoogleSignIn}
+      >
         <Text style={styles.googleButtonText}>Sign in with Google</Text>
       </TouchableOpacity>
     </View>
